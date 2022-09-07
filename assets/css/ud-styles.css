@@ -1,8 +1,8 @@
 /* =======
 
 	Template Name: Play Bootstrap
-	Author: UIdeck
-	Author URI: https://uideck.com/
+	Author: Cozmot
+	Author URI: https://cozmot.com/
 	Support: https://github.com/uideck/
 	Version: 1.0
 
@@ -247,7 +247,7 @@ p {
 }
 
 .navbar-brand img {
-  max-width: 160px;
+  max-width: 100px;
 }
 
 .navbar-toggler {
