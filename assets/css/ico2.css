@@ -16,7 +16,7 @@ Author: cozmot.com
 }
 
 /*------------------------
-	base class definition
+  base class definition
 -------------------------*/
 .lni {
   display: inline-block;
@@ -82,7 +82,7 @@ Author: cozmot.com
   transform: scaleX(-1);
 }
 /*------------------------
-	icons
+  icons
 -------------------------*/
 
 .lni-500px::before {
