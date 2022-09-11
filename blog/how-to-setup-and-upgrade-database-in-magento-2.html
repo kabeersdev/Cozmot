@@ -56,6 +56,14 @@
   gtag('config', 'UA-122146524-5');
 </script>
   </head>
+  <style>pre.lang\:default.decode\:true {
+    border-color: #5f9ea0;
+    border-style: solid;
+    background-image: url(assets/images/blog/quote-bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px;
+}</style>
   <body>
     <!-- ====== Header Start ====== -->
     <header class="ud-header">
@@ -175,22 +183,22 @@
               <div class="ud-blog-overlay">
                 <div class="ud-blog-overlay-content">
                   <div class="ud-blog-author">
-                    <img src="assets/images/blog/author-01.png" alt="author" />
+                    <img src="assets/images/blog/article-author-04.png" alt="author" />
                     <span>
-                      By <a href="javascript:void(0)"> Samuyl Joshi </a>
+                      By <a href="javascript:void(0)"> Zaheer Ahmad </a>
                     </span>
                   </div>
 
                   <div class="ud-blog-meta">
                     <p class="date">
-                      <i class="lni lni-calendar"></i> <span>12 Jan 2024</span>
+                      <i class="lni lni-calendar"></i> <span>12 Sep 2022</span>
                     </p>
-                    <p class="comment">
+                   <!--  <p class="comment">
                       <i class="lni lni-comments"></i> <span>50</span>
                     </p>
                     <p class="view">
                       <i class="lni lni-eye"></i> <span>35</span>
-                    </p>
+                    </p> -->
                   </div>
                 </div>
               </div>
@@ -200,96 +208,128 @@
           <div class="col-lg-8">
             <div class="ud-blog-details-content">
               <h2 class="ud-blog-details-title">
-                Facing a challenge is kind of a turn-on for an easy rider
+                How to Setup and Upgrade Database in Magento 2
               </h2>
-              <p class="ud-blog-details-para">
-                There’s a time and place for everything… including asking for
-                reviews. For instance: you should not asking for a review on
-                your checkout page. The sole purpose of this page is to guide
-                your customer to complete their purchase, and this means that
-                the page should be as minimalist and pared-down possible. You
-                don’t want to have any unnecessary elements or Call To Actions.
-              </p>
-              <p class="ud-blog-details-para">
-                There’s a time and place for everything… including asking for
-                reviews. For instance: you should not asking for a review on
-                your checkout page. The sole purpose of this page is to guide
-                your customer to complete their purchase, and this means that
-                the page should be as minimalist and pared-down possible. You
-                don’t want to have any unnecessary elements or Call To Actions.
-              </p>
-              <h3 class="ud-blog-details-subtitle">Sea no quidam vulputate</h3>
-              <p class="ud-blog-details-para">
-                At quo cetero fastidii. Usu ex ornatus corpora sententiae,
-                vocibus deleniti ut nec. Ut enim eripuit eligendi est, in
-                iracundia signiferumque quo. Sed virtute suavitate suscipiantur
-                ea, dolor this can eloquentiam ei pro. Suas adversarium
-                interpretaris eu sit, eum viris impedit ne. Erant appareat
-                corrumpit ei vel.
-              </p>
+              In this article, we will find out <em>how to install and upgrade sql script for module in Magento 2</em>. When you install or upgrade a module, you may need to change the database structure or add some new data for current table. To do this, Magento 2 provide you some classes which you can do all of them.
 
-              <div class="ud-blog-quote">
-                <i class="lni lni-quotation"></i>
-                <p>
-                  A spring of truth shall flow from it: like a new star it shall
-                  scatter the darkness of ignorance, and cause a light
-                  heretofore unknown to shine amongst men.
-                </p>
-                <h6>“Andrio Domeco”</h6>
-              </div>
-              <h3 class="ud-blog-details-subtitle">
-                What is it with your ideas?
-              </h3>
-              <p class="ud-blog-details-para">
-                At quo cetero fastidii. Usu ex ornatus corpora sententiae,
-                vocibus deleniti ut nec. Ut enim eripuit eligendi est, in
-                iracundia signiferumque quo. Sed virtute suavitate suscipiantur
-                ea, dolor this can eloquentiam ei pro. Suas adversarium
-                interpretaris eu sit, eum viris impedit ne. Erant appareat
-                corrumpit ei vel.
-              </p>
-              <p class="ud-blog-details-para">
-                At quo cetero fastidii. Usu ex ornatus corpora sententiae,
-                vocibus deleniti ut nec. Ut enim eripuit eligendi est, in
-                iracundia signiferumque quo. Sed virtute suavitate suscipiantur
-                ea, dolor this can eloquentiam ei pro. Suas adversarium
-                interpretaris eu sit, eum viris impedit ne. Erant appareat
-                corrumpit ei vel.
-              </p>
+<strong>Table of content</strong>
 
-              <div class="ud-blog-details-action">
-                <ul class="ud-blog-tags">
-                  <li>
-                    <a href="javascript:void(0)">Design</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">Development</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">Info</a>
-                  </li>
-                </ul>
-                <div class="ud-blog-share">
-                  <h6>Share This Post</h6>
-                  <ul class="ud-blog-share-links">
-                    <li>
-                      <a href="javascript:void(0)" class="facebook">
-                        <i class="lni lni-facebook-filled"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)" class="twitter">
-                        <i class="lni lni-twitter-filled"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)" class="linkedin">
-                        <i class="lni lni-linkedin-original"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+Magento 2 provides some classes in the directory <strong>app/code/[Namespace]/[ModuleName]/Setup</strong><strong> </strong>to create or upgrade database.
+<ul>
+  <li style="list-style:disc;">InstallSchema – setup database structure</li>
+  <li style="list-style:disc;">InstallData – initial the data for database table.</li>
+  <li style="list-style:disc;">UpgradeSchema – upgraded database structure</li>
+  <li style="list-style:disc;">UpgradeData – upgraded (add/remove) data from table.</li>
+</ul>
+Functions of these classes will be run when we install or upgrade module by this command line:
+<pre class="lang:default decode:true ">php bin/magento setup:upgrade</pre>
+<strong>Elaborating each step,</strong>
+<ol>
+  <li>Install Schema
+Create file: <strong>app/code/Cozmot/HelloWorld/Setup/InstallSchema.php
+</strong></li>
+</ol>
+<pre class="lang:default decode:true ">&lt;?php
+namespace Magestore\DataExample\Setup;
+use Magento\Framework\Setup\SchemaSetupInterface;
+use Magento\Framework\Setup\ModuleContextInterface;
+use Magento\Framework\Setup\InstallSchemaInterface;
+class InstallSchema implements InstallSchemaInterface
+{
+    public function install(SchemaSetupInterface $setup,ModuleContextInterface $context)
+    {
+        $installer = $setup;
+        $installer-&gt;startSetup();
+        $table = $installer-&gt;getConnection()-&gt;newTable($installer-&gt;getTable('data_example'))
+            -&gt;addColumn('example_id',\Magento\Framework\Db\Ddl\Table::TYPE_INTEGER,null,
+                ['identity' =&gt; true, 'nullable' =&gt; false, 'primary' =&gt; true, 'unsigned' =&gt; true],
+                'Example Id')
+            -&gt;addColumn('title',\Magento\Framework\Db\Ddl\Table::TYPE_TEXT,255,
+                ['nullable' =&gt; false],
+                'Example Title')
+            -&gt;addColumn('content',\Magento\Framework\Db\Ddl\Table::TYPE_TEXT,'2M',
+                [],
+                'Example Content')
+            -&gt;addColumn('created_at',\Magento\Framework\Db\Ddl\Table::TYPE_TIMESTAMP,null,
+                ['nullable'=&gt;false,'default'=&gt;\Magento\Framework\Db\Ddl\Table::TIMESTAMP_INIT],
+                'Created At');
+        $installer-&gt;getConnection()-&gt;createTable($table);
+        $installer-&gt;endSetup();
+    }
+}</pre>
+In this file, we created a table with name “data_example” with four columns: <b><i>example_id, title, content, created_at</i></b> with data types are <i>integer, varchar, text, timestamp</i>
+You can review all data types in this file: <strong>\Magento\Framework\Db\Ddl\Table.php</strong>
+
+2. Install Data
+File: <strong>app/code/Cozmot/HelloWorld/Setup/InstallData.php</strong>
+<pre class="lang:default decode:true">&lt;?php
+namespace Meetanshi\HelloWorld\Setup;
+use Magento\Framework\Setup\InstallDataInterface;
+use Magento\Framework\Setup\ModuleContextInterface;
+use Magento\Framework\Setup\ModuleDataSetupInterface;
+class InstallData implements InstallDataInterface
+{
+    protected $_exampleFactory;
+    public function __construct(\Cozmot\HelloWorld\Model\ExampleFactory $exampleFactory)
+    {
+        $this-&gt;_exampleFactory = $exampleFactory;
+    }
+    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
+    {
+        $data = ['title' =&gt; "First example title",'content' =&gt; "First Example content"];
+        $example = $this-&gt;_exampleFactory-&gt;create();
+        $example-&gt;addData($data)-&gt;save();
+    }
+}</pre>
+Here,  we insert a row with value for “title” and “content” columns to data_example table.
+
+3. Upgrade Schema
+File: <strong>app/code/ Cozmot/HelloWorld/Setup/UpgradeSchema.php</strong>
+<pre class="lang:default decode:true ">&lt;?php
+namespace Cozmot\HelloWorld\Setup;
+use Magento\Framework\Setup\UpgradeSchemaInterface;
+use Magento\Framework\Setup\SchemaSetupInterface;
+use Magento\Framework\Setup\ModuleContextInterface;
+class UpgradeSchema implements UpgradeSchemaInterface
+{
+    public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
+    {
+        $installer = $setup;
+        $installer-&gt;startSetup();
+        if (version_compare($context-&gt;getVersion(), '1.0.1', '&lt;')) 
+        {
+            $installer-&gt;getConnection()-&gt;dropColumn($installer-&gt;getTable('data_example'), 'created_at');
+        }
+        $installer-&gt;endSetup();
+    }
+}</pre>
+Here, note that we have to check module version in upgrade function. In this example, we upgraded module from version 1.0.0 to 1.0.1. Drop created_at column from the data_example table.
+
+4. Upgrade Data
+File: <strong>app/code/ Cozmot/HelloWorld/Setup/UpgradeData.php</strong>
+<pre class="lang:default decode:true ">&lt;?php
+namespace Cozmot\HelloWorld\Setup;
+use Magento\Framework\Setup\UpgradeDataInterface;
+use Magento\Framework\Setup\ModuleDataSetupInterface;
+use Magento\Framework\Setup\ModuleContextInterface;
+class UpgradeData implements UpgradeDataInterface
+{
+    protected $_exampleFactory;
+    public function __construct(\Cozmot\HelloWorld\Model\ExampleFactory $exampleFactory)
+    {
+        $this-&gt;_exampleFactory = $exampleFactory;
+    }
+    public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
+    {
+        if (version_compare($context-&gt;getVersion(), '1.0.1', '&lt;')) 
+        {
+            $data = ['title' =&gt; "The second example title", 'content' =&gt; "The second example content"];
+            $example = $this-&gt;_exampleFactory-&gt;create();
+            $example &gt; addData($dalogta)-&gt;save();
+        }
+    }
+}</pre>
+             
             </div>
           </div>
           <div class="col-lg-4">
