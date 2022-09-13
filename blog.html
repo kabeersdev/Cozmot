@@ -95,7 +95,7 @@
                     <a class="ud-menu-scroll" href="#contact">Contact</a>
                   </li>
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="../blog">Blog</a>
+                    <a class="ud-menu-scrol" href="../blog.html">Blog</a>
                   </li>
                   <!--<li class="nav-item nav-item-has-children">
                     <a href="javascript:void(0)"> Pages </a>
@@ -304,7 +304,7 @@
     <!-- ====== Blog End ====== -->
 
     <!-- ====== Footer Start ====== -->
-    <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
+   <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
       <div class="shape shape-1">
         <img src="assets/images/footer/shape-1.svg" alt="shape" />
       </div>
@@ -320,7 +320,7 @@
             <div class="col-xl-3 col-lg-4 col-md-6">
               <div class="ud-widget">
                 <a href="index.html" class="ud-footer-logo">
-                  <img src="assets/images/logo/logo.svg" alt="logo" />
+                  <img src="assets/images/logo/logo-3.png" alt="logo" />
                 </a>
                 <p class="ud-widget-desc">
                   We create digital experiences for brands and companies by
@@ -328,22 +328,22 @@
                 </p>
                 <ul class="ud-widget-socials">
                   <li>
-                    <a href="https://twitter.com/MusharofChy">
+                    <a href="https://web.facebook.com/cozmot/">
                       <i class="lni lni-facebook-filled"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://twitter.com/MusharofChy">
+                    <a href="https://twitter.com/cozmotinc">
                       <i class="lni lni-twitter-filled"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://twitter.com/MusharofChy">
+                    <a href="https://www.instagram.com/cozmotinc/">
                       <i class="lni lni-instagram-filled"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://twitter.com/MusharofChy">
+                    <a href="https://www.linkedin.com/company/cozmot/">
                       <i class="lni lni-linkedin-original"></i>
                     </a>
                   </li>
@@ -356,16 +356,16 @@
                 <h5 class="ud-widget-title">About Us</h5>
                 <ul class="ud-widget-links">
                   <li>
-                    <a href="javascript:void(0)">Home</a>
+                    <a href="#home">Home</a>
                   </li>
                   <li>
-                    <a href="javascript:void(0)">Features</a>
+                    <a href="#features">Expertise</a>
                   </li>
                   <li>
-                    <a href="javascript:void(0)">About</a>
+                    <a href="#about">About</a>
                   </li>
                   <li>
-                    <a href="javascript:void(0)">Testimonial</a>
+                    <a href="#testimonials">Testimonial</a>
                   </li>
                 </ul>
               </div>
@@ -389,7 +389,7 @@
                 </ul>
               </div>
             </div>
-            <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
+            <!--<div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
               <div class="ud-widget">
                 <h5 class="ud-widget-title">Our Products</h5>
                 <ul class="ud-widget-links">
@@ -427,7 +427,7 @@
                   </li>
                 </ul>
               </div>
-            </div>
+            </div>-->
             <div class="col-xl-3 col-lg-6 col-md-8 col-sm-10">
               <div class="ud-widget">
                 <h5 class="ud-widget-title">Partners</h5>
@@ -548,5 +548,48 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+      // ==== for menu scroll
+      const pageLink = document.querySelectorAll(".ud-menu-scroll");
+
+      pageLink.forEach((elem) => {
+        elem.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.querySelector(elem.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+            offsetTop: 1 - 60,
+          });
+        });
+      });
+
+      // section menu active
+      function onScroll(event) {
+        const sections = document.querySelectorAll(".ud-menu-scroll");
+        const scrollPos =
+          window.pageYOffset ||
+          document.documentElement.scrollTop ||
+          document.body.scrollTop;
+
+        for (let i = 0; i < sections.length; i++) {
+          const currLink = sections[i];
+          const val = currLink.getAttribute("href");
+          const refElement = document.querySelector(val);
+          const scrollTopMinus = scrollPos + 73;
+          if (
+            refElement.offsetTop <= scrollTopMinus &&
+            refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+          ) {
+            document
+              .querySelector(".ud-menu-scroll")
+              .classList.remove("active");
+            currLink.classList.add("active");
+          } else {
+            currLink.classList.remove("active");
+          }
+        }
+      }
+
+      window.document.addEventListener("scroll", onScroll);
+    </script>
   </body>
 </html>
